@@ -1,0 +1,58 @@
+[
+  {
+    "id": "lettuce",
+    "name": "Lettuce",
+    "category": "leafy",
+    "ecRange": [1.2, 1.8],
+    "gramsPerLiter": {"mb": 0.53, "can": 0.53, "mgso4": 0.265}
+  },
+  {
+    "id": "spinach",
+    "name": "Spinach",
+    "category": "leafy",
+    "ecRange": [1.2, 1.8],
+    "gramsPerLiter": {"mb": 0.53, "can": 0.53, "mgso4": 0.265}
+  },
+  {
+    "id": "kale",
+    "name": "Kale",
+    "category": "leafy",
+    "ecRange": [1.2, 1.8],
+    "gramsPerLiter": {"mb": 0.53, "can": 0.53, "mgso4": 0.265}
+  },
+  {
+    "id": "basil",
+    "name": "Basil",
+    "category": "herb",
+    "ecRange": [1.0, 1.6],
+    "gramsPerLiter": {"mb": 0.55, "can": 0.55, "mgso4": 0.275}
+  },
+  {
+    "id": "mint",
+    "name": "Mint",
+    "category": "herb",
+    "ecRange": [1.0, 1.6],
+    "gramsPerLiter": {"mb": 0.55, "can": 0.55, "mgso4": 0.275}
+  },
+  {
+    "id": "tomato",
+    "name": "Tomato",
+    "category": "fruiting",
+    "ecRange": [2.0, 2.4],
+    "gramsPerLiter": {"mb": 0.63, "can": 0.63, "mgso4": 0.317}
+  },
+  {
+    "id": "pepper",
+    "name": "Pepper",
+    "category": "fruiting",
+    "ecRange": [2.0, 2.4],
+    "gramsPerLiter": {"mb": 0.63, "can": 0.63, "mgso4": 0.317}
+  },
+  {
+    "id": "cucumber",
+    "name": "Cucumber",
+    "category": "fruiting",
+    "ecRange": [2.0, 2.4],
+    "gramsPerLiter": {"mb": 0.63, "can": 0.63, "mgso4": 0.317}
+  }
+]
