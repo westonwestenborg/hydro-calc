@@ -7,11 +7,11 @@ interface CalcState {
   crops: Crop[]
   selectedCropId: string
   volume: number
-  unit: 'L' | 'gal'
+  unit: 'ml' | 'L' | 'gal'
   strength: number
   setSelectedCropId: (id: string) => void
   setVolume: (volume: number) => void
-  setUnit: (unit: 'L' | 'gal') => void
+  setUnit: (unit: 'ml' | 'L' | 'gal') => void
   setStrength: (strength: number) => void
 }
 
@@ -25,7 +25,7 @@ export const useCalcStore = create<CalcState>()(
       strength: 100,
       setSelectedCropId: (id: string) => set({ selectedCropId: id }),
       setVolume: (volume: number) => set({ volume }),
-      setUnit: (unit: 'L' | 'gal') => set({ unit }),
+      setUnit: (unit: 'ml' | 'L' | 'gal') => set({ unit }),
       setStrength: (strength: number) => set({ strength }),
     }),
     {

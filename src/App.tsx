@@ -1,7 +1,9 @@
+import { useState } from 'react'
 import { useCalcStore } from './store'
 import './App.css'
 
 function App() {
+  const [searchTerm, setSearchTerm] = useState('')
   const {
     crops,
     selectedCropId,
@@ -15,7 +17,11 @@ function App() {
   } = useCalcStore()
 
   const selectedCrop = crops.find((c) => c.id === selectedCropId)
-  const volumeInL = unit === 'gal' ? volume * 3.785 : volume
+  const volumeInL = unit === 'gal'
+    ? volume * 3.785
+    : unit === 'ml'
+    ? volume / 1000
+    : volume
   const scale = strength / 100
   const grams = selectedCrop
     ? {
@@ -35,16 +41,25 @@ function App() {
   return (
     <div className="p-4 max-w-xl mx-auto">
       {/* Crop selector, volume input, strength slider */}
+      <input
+        type="text"
+        placeholder="Search crops..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        className="w-full p-2 mb-2"
+      />
       <select
         value={selectedCropId}
         onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setSelectedCropId(e.target.value)}
         className="w-full p-2 mb-4"
       >
-        {crops.map((c: { id: string; name: string; ecRange: [number, number] }) => (
-          <option key={c.id} value={c.id}>
-            {c.name} ({c.ecRange[0]}–{c.ecRange[1]} mS/cm)
-          </option>
-        ))}
+        {crops
+          .filter((c) => c.name.toLowerCase().includes(searchTerm.toLowerCase()))
+          .map((c: { id: string; name: string; ecRange: [number, number] }) => (
+            <option key={c.id} value={c.id}>
+              {c.name} ({c.ecRange[0]}–{c.ecRange[1]} mS/cm)
+            </option>
+          ))}
       </select>
       <div className="flex space-x-2 mb-4">
         <input
@@ -57,9 +72,10 @@ function App() {
         />
         <select
           value={unit}
-          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setUnit(e.target.value as 'L' | 'gal')}
+          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setUnit(e.target.value as 'ml' | 'L' | 'gal')}
           className="p-2"
         >
+          <option value="ml">ml</option>
           <option value="L">L</option>
           <option value="gal">gal</option>
         </select>
