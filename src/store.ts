@@ -20,8 +20,8 @@ export const useCalcStore = create<CalcState>()(
     (set) => ({
       crops: (cropsData as unknown) as Crop[],
       selectedCropId: (cropsData as any)[0]?.id || '',
-      volume: 1,
-      unit: 'L',
+      volume: 1000,
+      unit: 'ml',
       strength: 100,
       setSelectedCropId: (id: string) => set({ selectedCropId: id }),
       setVolume: (volume: number) => set({ volume }),
